@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - database
+  db:
+    container_name: db
+    build:
+     context: ./db
+     dockerfile: Dockerfile
+    networks:
+      - database
+networks:
+  database:
+    driver: bridge
